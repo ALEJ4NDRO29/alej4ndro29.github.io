@@ -1,6 +1,6 @@
 # Apache actividad 1
 
-## Sitio 1
+# Sitio 1
 
 Instalar servidor PHP:
 ```
@@ -90,3 +90,35 @@ Ahora creamos el directorio `public_files` y su fichero `.htaccess`.
     mkdir /var/www/sitioNode/public_files
     
     touch /var/www/sitioNode/public_files/.htaccess
+
+Añadimos el siguente contenido en el fichero .htaccess.
+
+```
+AuthType Basic
+AuthName "Restricted Files"
+
+AuthBasicProvider file
+AuthUserFile "/etc/apache2/.htpasswd"
+Require user user
+```
+
+Cuando entremos al navegador nos pedirá el usuario y la contraseña.
+
+# Investigación
+
+A continuación vamos a instalar una herramienta de configuración de logs de apache (GoAcces).
+
+Instalamos GoAcces con el siguiente comando.
+
+    apt-get install goaccess
+
+
+Para realizar una monitorización a tiempo real ejecutamos el siguiente comando:
+
+    goaccess /var/log/apache2/access.log -o /var/www/html/report.html --log-format=COMBINED --real-time-html
+
+El cual nos genera un fichero html en la ruta 'var/www/html/report.html' donde veremos el log '/var/log/apache2/access.log'
+
+Esta es la pantalla que mostrará el navegador al acceder en http://localhost/report.html.
+
+![Estadísticas](img/stats.png)
