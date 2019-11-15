@@ -1,5 +1,8 @@
 # Apache actividad 1
 
+El servidor HTTP Apache es un servidor web HTTP de código abierto, para plataformas Unix, Microsoft Windows Macintosh...
+
+
 # Sitio 1
 
 Instalar servidor PHP:
