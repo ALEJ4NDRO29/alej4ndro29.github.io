@@ -11,7 +11,7 @@ sudo apt install php7.2
 ```
 Habilitar módulo apache:
 ```
-a2dismod php7.2
+a2enmod php7.2
 ```
 
 Creamos el directorio dónde estará el sitio php.
