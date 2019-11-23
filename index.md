@@ -7,3 +7,6 @@
 
 ## Apache
 - [Actividad apache](actividades/apache/actividad1/index.md)
+
+## Nginx
+- [Actividad Nginx](actividades/nginx/actividad1/index.md) 
