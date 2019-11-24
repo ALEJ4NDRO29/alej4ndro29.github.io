@@ -226,5 +226,8 @@ server {
 
 Comprobamos la redirección en el navegador.
 
-![Redirección antes](img/redirectAntes.png) ->
+![Redirección antes](img/redirectAntes.png) 
+
+->
+
 ![Redirección antes](img/redirectDespues.png)
