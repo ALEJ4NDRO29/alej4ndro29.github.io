@@ -12,7 +12,7 @@ En primer lugar tenemos que instalar el servidor php.
     sudo apt install php7.2
 
 A continuación procedemos a crear el fichero `/etc/nginx/sites/available/misitiophp` con el siguiente contenido.
-``` yml
+```
 server {
     listen 82 default_server;
     listen [::]:82 default_server;
@@ -95,6 +95,7 @@ server {
     location = /404.html {
             root /var/www/errores;
             internal;
+    }
     . . . 
 }
 ```
@@ -152,3 +153,78 @@ Finalmente, después de reiniciar el servicio comprobamos el resultado en el nav
 ![Directorio privado](img/dirPriv.png)
 
 # Sitio 2
+A continuación crearemos un sitio que nos permita acceder a una aplicación que esté ejecutandose en el puerto 3000 de nuestra máquina.
+
+Para ello creamo el fichero `/etc/nginx/sites-available/segundositio`
+
+
+    touch /etc/nginx/sites-available/segundositio
+
+Con el contenido siguiente:
+```
+server {
+    listen 81 default_server;
+    listen [::]:81 default_server;
+
+    root /var/www/sitioNode;
+    index index.php index.html index.htm index.nginx-debian.html;
+
+    server_name localhost;
+
+}
+```
+
+## Redirección de puertos
+Añadimos a la configuración del sitio:
+```
+server {
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+    }
+    . . .
+}
+```
+
+Después de recargar el servicio podremos comprobar el resultado desde el navegador.
+
+![Redirección de puertos](img/proxy.png)
+
+## Directorio de logs
+
+Añadimos a nuestro sitoi lo siguiente:
+```
+server {
+    access_log /etc/logs/sitioNode/sitioPhp.log
+    . . .
+}
+```
+
+
+## Error 404
+
+Añadimos al fichero:
+```
+server {
+    error_page 404 /404.html;
+    location = /404.html {
+            root /var/www/errores;
+            internal;
+    }
+    . . . 
+}
+```
+
+## Redirección en documentación.
+Para realizar una redirección necesitaremos añadir lo siguiente a la configuración:
+```
+server {
+    location /documentacion {
+        return 301 https://nodejs.org/en/;
+    }
+}
+```
+
+Comprobamos la redirección en el navegador.
+
+![Redirección antes](img/redirectAntes.png) ->
+![Redirección antes](img/redirectDespues.png)
