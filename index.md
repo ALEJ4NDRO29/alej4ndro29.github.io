@@ -13,3 +13,5 @@
 
 ## Docker 
 - [Actividad Docker](actividades/docker/actividad1/index.md) 
+
+- [Actividad Graylog](actividades/docker/graylog/index.md)
