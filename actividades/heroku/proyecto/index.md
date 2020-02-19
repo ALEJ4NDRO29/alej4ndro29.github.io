@@ -1,16 +1,15 @@
 <h1 align="center" >PRÁCTICA HEROKU</h1>
 
+<h2>Sandra, Juanan, Alejandro</h2>
+
+Enlace al repositorio de la aplicación:
+
+[https://github.com/juanantoniogisbert/Practica_Heroku.github.io](https://github.com/juanantoniogisbert/Practica_Heroku.github.io)
+
 <p align="center">
   <img src="images/logo.png"/>
 </p>
 
-***
-
-Enlace a GitHub Pages
-
-https://juanantoniogisbert.github.io/Practica_Heroku.github.io/
-
-***
 
 ## Enunciado
 
