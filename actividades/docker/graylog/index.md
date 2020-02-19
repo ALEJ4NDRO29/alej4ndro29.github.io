@@ -81,6 +81,8 @@ services:
         WORDPRESS_DB_USER: wordpress
         WORDPRESS_DB_PASSWORD: wordpress
         WORDPRESS_DB_NAME: wordpress
+    networks:
+      - practica_network
     ports:
       - 9090:80
 
